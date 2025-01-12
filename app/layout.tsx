@@ -1,17 +1,19 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google';
-import Nav from './components/Nav'
-import Footer from './components/Footer'
-import { ParallaxProvider } from 'react-scroll-parallax'
+import './globals.css';
 
+import { Roboto } from 'next/font/google';
+import { ParallaxProvider } from 'react-scroll-parallax';
+
+import Footer from './components/Footer';
+import Nav from './components/Nav';
+
+import type { Metadata } from 'next'
 const inter = Roboto({
   weight: ['100', '300', '400', '500', '700', '900'],
   subsets: ['latin']
 })
 
 export const metadata: Metadata = {
-  title: 'Dávid Budai - Portfolio',
+  title: 'The Silver Swan',
   description: 'NextJS Typescript Project by Gábor Juhász',
 }
 
