@@ -25,8 +25,8 @@ export default async function HomePage() {
       <div className="mt-12">
         <Image
           className="lg:max-w-[400px] w-full mx-auto rounded-md drop-shadow-xl"
-          src={`${apiUrl}/img/${convertStringToUrlFriendly(data.biography[0].fileName)}`}
-          alt={data.biography[0].imgAlt}
+          src={`${apiUrl}/img/${convertStringToUrlFriendly(data.home[0].fileName)}`}
+          alt={data.home[0].imgAlt}
           width={400}
           height={200}
           priority={true}
