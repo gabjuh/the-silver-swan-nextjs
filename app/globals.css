@@ -16,3 +16,7 @@
   background-color: hsl(var(--sf) / var(--tw-bg-opacity)) !important;
   color: white !important;
 }
+
+html .markdown-block a {
+  color: rgb(255, 133, 27);
+}

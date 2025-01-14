@@ -1,17 +1,20 @@
 'use client'
 
-import { useTransition, useState, lazy, useEffect } from "react";
+import { lazy, useEffect, useState, useTransition } from 'react';
+
 // Use React.lazy to create a new chunk.
 const Player = lazy(() => import("./Player"));
 
 interface IYoutubeVideo {
   youtubeId: string;
-  quality: 'low' | undefined;
+  quality: 'low' | 'high' | undefined;
+  classes?: string;
 }
 
 const YoutubeVideo: React.FC<IYoutubeVideo> = ({
   youtubeId,
   quality,
+  classes
 }) => {
 
   // useTransition is used to let React know there will be a
@@ -31,7 +34,7 @@ const YoutubeVideo: React.FC<IYoutubeVideo> = ({
     `${thumbnailProvider}${youtubeId}/maxresdefault.jpg`;
 
   return (
-    <div className="max-w-[700px] min-w-[95vw] md:min-w-[400px]">
+    <div className={`max-w-[700px] min-w-[95vw] md:min-w-[400px] ${classes}`}>
       <div className="overflow-x-scroll mt-7 p-0 pt-[56.25%] relative w-full">
         {
           // If the button has not been pressed, and the YouTube
