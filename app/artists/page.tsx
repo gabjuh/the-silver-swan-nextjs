@@ -25,7 +25,7 @@ export default async function HomePage() {
       <Title title={data.artists[0].pageTitle} />
 
       {data.artists.map((item, index) => {
-        if (item.active == 0) {
+        if (item.active === '0') {
           return null;
         }
         return (
