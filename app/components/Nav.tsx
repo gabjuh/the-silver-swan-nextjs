@@ -45,7 +45,7 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {menu.map((item, index) => {
-                if (item.active == 0) {
+                if (item.active === '0') {
                   return null;
                 }
                 return (
@@ -77,7 +77,7 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
           {/* Horisontal menu */}
           <ul className="menu menu-horizontal px-1">
             {menu.map((item, index) => {
-              if (item.active == 0) {
+              if (item.active === '0') {
                 return null;
               }
               return (
