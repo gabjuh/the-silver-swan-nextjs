@@ -1,4 +1,4 @@
-export default interface {
+export default interface IArtists {
   sheetId: string;
   pageTitle: string;
   active: '0' | '1';
