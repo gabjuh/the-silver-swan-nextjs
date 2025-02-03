@@ -12,7 +12,7 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
 
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 
-  const [selectedMenuItem, setSelectedMenuItem] = useState<string>("");
+  const [selectedMenuItem, setSelectedMenuItem] = useState<string>("/");
 
   const handleMenuItemClick = (e: any) => {
     setSelectedMenuItem(e.target.id);
