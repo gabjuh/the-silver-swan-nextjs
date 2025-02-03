@@ -34,11 +34,12 @@ export default async function RootLayout({
   }
 
   const data = await getData();
-
+  
   return (
     // <html lang="en" data-theme="dark">
     // <ParallaxProvider>
-    <html lang="de" data-theme="corporate">
+    // <html lang="de" data-theme="corporate">
+    <html lang="de" data-theme={data.settings[0].theme ?? ''}>
       <body className={`${inter.className} min-h-[100vh] relative pb-[112px]`}>
         <Nav data={[data.menuItems, data.settings]} />
         {children}

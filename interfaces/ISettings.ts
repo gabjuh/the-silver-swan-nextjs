@@ -10,5 +10,6 @@ export default interface ISettings {
   // themeButtonTooltipTextHu: string;
   copyright?: string;
   darkTheme?: string;
+  theme?: string;
   lightTheme?: string;
 }

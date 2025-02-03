@@ -6,6 +6,7 @@ import remarkGfm from 'remark-gfm';
 import convertStringToUrlFriendly from '@/helpers/convertStringToUrlFriendly';
 import IData from '@/interfaces/IData';
 
+import BlockTitle from './components/BlockTitle';
 import MarkdownText from './components/MarkdownText';
 import Title from './components/Title';
 import YoutubeVideo from './components/YoutubeVideo';
@@ -30,9 +31,10 @@ export default async function HomePage() {
     <main className={`container mx-auto md:px-10 px-5 py-4 w-full`}>
       {/* Block with image + text 1 */}
       <Title title={data.home[0].pageTitle} />
-      <h2 className="text-4xl mb-10 mt-16 text-center">
+      {/* <h2 className="text-4xl mb-10 mt-16 text-center">
         {data.home[0].blockTitle}
-      </h2>
+      </h2> */}
+      <BlockTitle text={data.home[0].blockTitle ?? ''} />
       <div className="flex lg:flex-row flex-col mt-10 gap-8 justify-center w-full">
         <Image
           className="lg:max-w-[500px] w-full h-auto rounded-md drop-shadow-xl object-cover"
@@ -65,9 +67,7 @@ export default async function HomePage() {
 
       {/* Blue block */}
       <div className="my-32 bg-secondary text-white lg:px-20 md:py-10 mx-py-24 py-7 shadow-lg rounded-xl">
-        <h2 className="text-4xl mb-10 text-center mx-3">
-          {data.home[1].blockTitle}
-        </h2>
+        <BlockTitle text={data.home[1].blockTitle ?? ''} />
         <div className="flex lg:flex-row flex-col mt-10 gap-8 justify-center w-full">
           <MarkdownText
             text={data.home[1].text ?? ""}
@@ -87,9 +87,7 @@ export default async function HomePage() {
       </div>
 
       {/* Block with image + text 2 */}
-      <h2 className="text-4xl mb-10 mt-16 text-center">
-        {data.home[2].blockTitle}
-      </h2>
+      <BlockTitle text={data.home[2].blockTitle} />
       <div className="flex xl:flex-row flex-col-reverse mt-10 mb-20 gap-8 justify-center w-full">
         <div className="xl:w-[50%] w-full">
           <MarkdownText text={data.home[2].text ?? ""} classes="text-justify" />
