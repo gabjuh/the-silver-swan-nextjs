@@ -71,7 +71,7 @@ export default async function HomePage() {
         <div className="flex lg:flex-row flex-col mt-10 gap-8 justify-center w-full">
           <MarkdownText
             text={data.home[1].text ?? ""}
-            classes="text-justify lg:w-[80%] px-3 sm:px-7 md:px-12 lg:px-0 mx-auto"
+            classes="text-justify lg:w-[80%] px-8 md:px-12 lg:px-0 mx-auto"
           />
           <Image
             className="lg:max-w-[300px] max-w-[80%] mx-auto h-auto rounded-md drop-shadow-xl object-cover"
