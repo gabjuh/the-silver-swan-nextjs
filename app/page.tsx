@@ -76,9 +76,9 @@ export default async function HomePage() {
           <Image
             className="lg:max-w-[300px] max-w-[80%] mx-auto h-auto rounded-md drop-shadow-xl object-cover"
             src={`${apiUrl}/img/${convertStringToUrlFriendly(
-              data.home[3].fileName
+              data.home[1].fileName
             )}`}
-            alt={data.home[3].imgAlt}
+            alt={data.home[1].imgAlt}
             width={300}
             height={200}
             priority={true}
