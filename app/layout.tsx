@@ -6,31 +6,31 @@ import { ParallaxProvider } from 'react-scroll-parallax';
 import Footer from './components/Footer';
 import Nav from './components/Nav';
 
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 const inter = Roboto({
-  weight: ['100', '300', '400', '500', '700', '900'],
-  subsets: ['latin']
-})
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: 'The Silver Swan',
-  description: 'NextJS Typescript Project by Gábor Juhász',
-}
+  title: "The Silver Swan",
+  description: "NextJS Typescript Project by Gábor Juhász",
+};
 
 export default async function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-
   async function getData() {
-    const res = await fetch(`https://${process.env.NEXT_PUBLIC_BACKEND_API}/data.json`,
-      { cache: 'no-store' }
-    )
+    const res = await fetch(
+      `https://${process.env.NEXT_PUBLIC_BACKEND_API}/data.json`,
+      { cache: "no-store" }
+    );
     if (!res.ok) {
-      throw new Error('Failed to fetch data')
+      throw new Error("Failed to fetch data");
     }
-    return res.json()
+    return res.json();
   }
 
   const data = await getData();
@@ -40,14 +40,11 @@ export default async function RootLayout({
     // <ParallaxProvider>
     <html lang="de" data-theme="corporate">
       <body className={`${inter.className} min-h-[100vh] relative pb-[112px]`}>
-        <Nav data={[
-          data.menuItems,
-          data.settings
-        ]} />
+        <Nav data={[data.menuItems, data.settings]} />
         {children}
         <Footer data={data.settings} timeStamp={data.timeStamp} />
       </body>
     </html>
     // </ParallaxProvider>
-  )
+  );
 }
