@@ -32,7 +32,7 @@ export default interface IData {
   videos?: IVideos[];
   audio?: IAudio[];
   ensembles?: IEnsembles[];
-  concerts?: IConcerts[];
+  concerts: IConcerts[];
   agb: IAgb[];
   impressum: IImpressum[];
   settings: ISettings[];
