@@ -14,7 +14,7 @@ const inter = Roboto({
 
 export const metadata: Metadata = {
   title: "The Silver Swan",
-  description: "NextJS Typescript Project by Gábor Juhász",
+  description: "Willkommen bei der Konzertreihe The Silver Swan!",
 };
 
 export default async function RootLayout({
