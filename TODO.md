@@ -37,6 +37,16 @@ Altalanos:
 [?] CD-k mutatasa
 [X] Add last rendering time
 
+[ ] ⁠Konzerte (hasonlóan a 'Hangszereim'-hez, ha lehet, egy standard rendezéssel: 
+  - Cím 
+  - Dátum 
+  - idő 
+  - hely
+  - Együttesnév (opcionális) 
+  - Művészek felsorolása (esetleg linkkel) 
+  - Leírás (folyó szöveg a programról [ez az oldal az első évad után működhetne esetleg úgy, mint az én honlapomon a koncertek, tehát a fent felsorolt adatok mind külön oszlopokba mennének, és elékerülne egy 0/1, ami eltenné egy archívumba, ha már nem aktuális.]
+
+
 Problemak:
 [ ] NAV
   [X] menu gombot toggle-re allitani 
