@@ -6,13 +6,15 @@ export default interface IConcerts {
   title?: string;
   date?: string;
   time?: string;
-  // categoryEn?: string;
-  // categoryDe?: string;
-  // categoryHu?: string;
-  // startDate: string;
-  // endDate?: string;
-  // startTime?: string;
-  // endTime?: string;
+
+  categoryEn?: string;
+  categoryDe?: string;
+  categoryHu?: string;
+  startDate: string;
+  endDate?: string;
+  startTime?: string;
+  endTime?: string;
+
   fileName?: string;
   driveId?: string;
   imgAlt?: string;
@@ -23,5 +25,5 @@ export default interface IConcerts {
   bandLink?: string;
   artists?: string;
   description?: string;
-  // concertLink?: string;
+  concertLink?: string;
 }
