@@ -94,7 +94,8 @@ export default async function HomePage() {
           {data.home[2].buttonText && (
             <div className="mx-auto w-full mt-10 text-center">
               <Link
-                href={`/${data.home[2].link}`}
+                href={`${data.home[2].link}`}
+                target="_blank"
                 className="btn btn-secondary text-white xl:float-right mx-auto"
                 // onClick={() => handleClick(0)}
               >
@@ -116,14 +117,14 @@ export default async function HomePage() {
       </div>
 
       {/* Youtube Video */}
-      {/* <div className="w-full mt-32 mb-24">
+      <div className="w-full mt-32 mb-24">
         <h2 className="text-4xl mb-10 mt-16 text-center">{ data.home[3].blockTitle }</h2>
         <YoutubeVideo 
           youtubeId={ data.home[3].youtubeLink }
           quality='high'
           classes='mx-auto w-full h-[300px] lg:w-[80%] lg:h-[400px] max-w-[700px] mb-36'
         />
-      </div> */}
+      </div>
 
       {/* Images */}
       {/* <h2 className="text-4xl mb-10 mt-24 text-center">Provident accusamus nulla dolor deserunt deleniti at quaerat</h2>
