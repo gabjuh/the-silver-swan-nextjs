@@ -4,6 +4,7 @@ export default interface IConcerts {
   active?: string;
   id: string;
   title?: string;
+  concertDetails?: string;
   date?: string;
   time?: string;
 

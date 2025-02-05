@@ -42,8 +42,9 @@ export default async function HomePage() {
               </div>
             }
             <div className="">
-              <p className="text-xl">{item.date}, {item.time}, {item.locationLink ? <a href={item.locationLink} target="_blank" className="link link-secondary">{item.location}</a>: item.location}</p>
-              <p className="text-xl my-1"><strong>{item.band}</strong>, {item.artists}</p>
+              <MarkdownText text={item.concertDetails ?? ''} classes="text-lg"/>
+              {/* <p className="text-xl">{item.date}, {item.time}, {item.locationLink ? <a href={item.locationLink} target="_blank" className="link link-secondary">{item.location}</a>: item.location}</p>
+              <p className="text-xl my-1"><strong>{item.band}</strong>, {item.artists}</p> */}
 
             </div>
             <div className="flex lg:flex-row flex-col-reverse mt-5 mb-20 gap-8 justify-center w-full">
