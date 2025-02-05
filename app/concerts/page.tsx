@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import FacebookIco from '@/assets/icos/FacebookIco';
 import convertStringToUrlFriendly from '@/helpers/convertStringToUrlFriendly';
 import IData from '@/interfaces/IData';
 
@@ -31,8 +32,15 @@ export default async function HomePage() {
           return null;
         }
         return (
-          <div className="my-10">
+          <div className="my-10 relative">
             <h3 className="text-3xl my-2">{item.title}</h3>
+            {item.facebook && 
+              <div className="absolute right-0 top-0 cursor-pointer transition-all ease-in-out duration-150 hover:translate-y-[-3px]">
+                <a href={item.facebook} target="_blank">
+                  <FacebookIco />
+                </a>
+              </div>
+            }
             <div className="">
               <p className="text-xl">{item.date}, {item.time}, {item.locationLink ? <a href={item.locationLink} target="_blank" className="link link-secondary">{item.location}</a>: item.location}</p>
               <p className="text-xl my-1">{item.band}, {item.artists}</p>
