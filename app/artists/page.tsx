@@ -32,7 +32,7 @@ export default async function HomePage() {
           );
         }
         return (
-          <div id={nameToId(item.artistName)} className="pt-[30px] pb-[110px]" key={index}>
+          <div id={nameToId(item.artistName)} className="pt-[20px] mt-0 pb-[50px]" key={index}>
             <ImageAndText              
               fileName={item.fileName}
               alt={item.imgAlt}
