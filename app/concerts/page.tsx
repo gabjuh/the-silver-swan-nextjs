@@ -34,35 +34,59 @@ export default async function HomePage() {
           );
         }
         return (
-          <div className="my-10 relative" key={index}>
-            <h3 className="text-3xl my-2">{item.title}</h3>
-            {item.facebook && 
-              <div className="absolute right-0 top-0 cursor-pointer transition-all ease-in-out duration-150 hover:translate-y-[-3px]">
-                <a href={item.facebook} target="_blank">
-                  <FacebookIco />
-                </a>
-              </div>
-            }
-            <div className="">
-              <MarkdownText text={item.concertDetails ?? ''} classes="text-lg"/>
-              {/* <p className="text-xl">{item.date}, {item.time}, {item.locationLink ? <a href={item.locationLink} target="_blank" className="link link-secondary">{item.location}</a>: item.location}</p>
-              <p className="text-xl my-1"><strong>{item.band}</strong>, {item.artists}</p> */}
+          <div className="flex lg:flex-row my-10 relative lg:gap-10 lg:mb-32 mb-16" key={index}>
+            <div>
+              {/* Title */}
+              <h3 className="text-4xl mb-5">{item.title}</h3>
 
+              {/* FaceBook icon */}
+              {item.facebook && 
+                <div className="absolute right-0 top-0 cursor-pointer transition-all ease-in-out duration-150 hover:translate-y-[-3px]">
+                  <a href={item.facebook} target="_blank">
+                    <FacebookIco />
+                  </a>
+                </div>
+              }
+
+              {/* Concert details */}
+              <div>
+                <MarkdownText text={item.concertDetails ?? ''} classes="text-lg"/>
+              </div>
+
+              {/* Image on Mobile/Tablet */}
+              <div className="w-full lg:w-[40%] max-w-[400px] mb-8 mt-6 mx-auto">
+              {item.fileName && 
+                <Image 
+                  src={`https://${process.env.NEXT_PUBLIC_BACKEND_API}/img/${item.fileName}`}
+                  // placeholder="blur"
+                  width="500"
+                  height="100"
+                  alt={item.imgAlt ?? ''}
+                  className={`lg:max-w-[700px] w-full lg:w-[350px] lg:max-h-[800px] rounded-md drop-shadow-xl object-cover lg:hidden block`}
+                />
+              }
             </div>
-            <div className="flex lg:flex-row flex-col-reverse mt-5 mb-20 gap-8 justify-center w-full">
-              <div className="">
+
+              {/* Description */}
+              <div>
                 <MarkdownText text={item.description ?? ''} classes="text-justify"/>
               </div>
+            </div>
+
+            {/* <div className="flex-col-reverse mt-5 mb-20 gap-8 justify-center w-full border border-green-700"> */}
+              
+            {/* Image on Desktop */}
+            <div className="">
               {item.fileName && 
-              <Image 
-                src={`https://${process.env.NEXT_PUBLIC_BACKEND_API}/img/${item.fileName}`}
-                // placeholder="blur"
-                width="500"
-                height="100"
-                alt={item.imgAlt ?? ''}
-                className={`lg:max-w-[700px] w-full lg:w-[350px] lg:max-h-[800px] rounded-md drop-shadow-xl object-cover`}
-              />
-            }
+                <Image 
+                  src={`https://${process.env.NEXT_PUBLIC_BACKEND_API}/img/${item.fileName}`}
+                  // placeholder="blur"
+                  width="500"
+                  height="100"
+                  alt={item.imgAlt ?? ''}
+                  className={`lg:max-w-[700px] w-full lg:w-[350px] lg:max-h-[800px] rounded-md drop-shadow-xl object-cover hidden lg:block`}
+                />
+              }
             </div>
           </div>
         );

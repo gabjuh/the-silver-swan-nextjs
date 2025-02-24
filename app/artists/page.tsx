@@ -22,7 +22,7 @@ export default async function HomePage() {
   const data: IData = await getData();
 
   return (
-    <main className={`container mx-auto px-4 py-10 w-full`}>
+    <main className={`container mx-auto px-4 py-10 mb-[500px] w-full`}>
       <Title title={data.artists[0].pageTitle} />
 
       {data.artists.map((item, index) => {
@@ -32,7 +32,9 @@ export default async function HomePage() {
           );
         }
         return (
-          <div id={nameToId(item.artistName)} className="pt-[20px] mt-0 pb-[50px]" key={index}>
+          <div className="border border-[#ffff]" key={index}>
+            <div id={nameToId(item.artistName)}></div>
+            {/* pt-[10px] mt-0 mb-[-40px] */}
             <ImageAndText              
               fileName={item.fileName}
               alt={item.imgAlt}

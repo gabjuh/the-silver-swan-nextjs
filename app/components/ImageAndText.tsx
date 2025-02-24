@@ -38,7 +38,13 @@ const ImageAndText: React.FC<IImageAndText> = ({
             />
           </div>
         </div>
-        {!imageLeft && <ImageForText fileName={fileName || ''} alt={alt || ''} classNameForImg={classNameForImg} driveId={""} />}
+        {!imageLeft && 
+          <ImageForText 
+            fileName={fileName || ''} 
+            alt={alt || ''} 
+            classNameForImg={classNameForImg} 
+            driveId={""} 
+          />}
       </div>
 
     </>
