@@ -7,6 +7,22 @@ import INav from '@/interfaces/INav';
 
 import NavMenuItem from './NavMenuItem';
 
+type PageT = 'home' | 'artists' | 'concerts';
+
+const getCurrentPage = (): PageT => {
+  const pathname = window.location.pathname;
+  const parts = pathname.split('/').filter(part => part !== '');
+  const page = parts[0] || 'home';
+
+  // Ensure the page is one of the valid options
+  if (page === 'home' || page === 'artists' || page === 'concerts') {
+    return page;
+  }
+
+  // Default to "home" if the page is unknown
+  return 'home';
+};
+
 const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
   const settings = settingsArr[0];
 
@@ -14,9 +30,16 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
 
   const [selectedMenuItem, setSelectedMenuItem] = useState<string>("/");
 
+  let currentPage: PageT = 'home';
+
   const handleMenuItemClick = (e: any) => {
     setSelectedMenuItem(e.target.id);
   };
+  
+  useEffect(() => {
+    currentPage = getCurrentPage();
+    setSelectedMenuItem(currentPage);
+  }, [])
 
   return (
     <>

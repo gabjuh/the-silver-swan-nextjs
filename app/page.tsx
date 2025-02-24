@@ -37,7 +37,7 @@ export default async function HomePage() {
       <BlockTitle text={data.home[0].blockTitle ?? ''} />
       <div className="flex lg:flex-row flex-col mt-10 gap-8 justify-center w-full">
         <Image
-          className="lg:max-w-[500px] w-full h-auto rounded-md drop-shadow-xl object-cover"
+          className="lg:max-w-[400px] w-full h-auto rounded-md drop-shadow-xl object-cover"
           src={`${apiUrl}/img/${convertStringToUrlFriendly(
             data.home[0].fileName
           )}`}
