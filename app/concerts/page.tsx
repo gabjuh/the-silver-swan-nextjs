@@ -35,7 +35,7 @@ export default async function HomePage() {
         }
         return (
           <div className="flex lg:flex-row my-10 relative lg:gap-10 lg:mb-32 mb-16" key={index}>
-            <div>
+            <div className="relative">
               {/* Title */}
               <h3 className="text-4xl mb-5">{item.title}</h3>
 
