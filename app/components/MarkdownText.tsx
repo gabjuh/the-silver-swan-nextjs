@@ -1,7 +1,9 @@
 'use client'
 
 import Link, { LinkProps } from 'next/link';
-import React, { AnchorHTMLAttributes, forwardRef, ReactNode } from 'react';
+import React, {
+    AnchorHTMLAttributes, forwardRef, PropsWithChildren, ReactNode, useEffect, useState
+} from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -23,7 +25,7 @@ const MarkdownText: React.FC<IMarkdownText> = ({ text, classes }) => {
             remarkPlugins={[remarkGfm]}
             children={paragraph}
             components={{
-              a: CustomLink,
+              a: ({ node, ...props }) => <CustomLink {...props} />, // Ensures correct prop passing
             }}
           /> 
         </div>
@@ -35,18 +37,22 @@ const MarkdownText: React.FC<IMarkdownText> = ({ text, classes }) => {
 type CustomLinkProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & {
   href?: LinkProps['href'];
   as?: LinkProps['as'];
-  children?: ReactNode & ReactNode[];
+  children?: ReactNode | ReactNode[]; // Explicitly allow ReactNode and ReactNode[]
 };
 
-const CustomLink = forwardRef<HTMLAnchorElement, CustomLinkProps>(
-  ({ as, href = '#', ...otherProps }, ref) => {
-    console.log(href);
-    return (
-      <Link as={as} href={href} {...otherProps} ref={ref} target={setLinkTargets(href)} />
-      
-    );
-  }
-);
+const CustomLink: React.FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({ href = "#", children, ...props }) => {
+  const [target, setTarget] = useState<"_self" | "_blank">("_self"); // Default to `_self` for SSR
+
+  useEffect(() => {
+    setTarget(setLinkTargets(href)); // Update target on the client
+  }, [href]);
+
+  return (
+    <Link href={href} target={target} {...props}>
+      {children}
+    </Link>
+  );
+};
 
 CustomLink.displayName = 'CustomLink';
 
