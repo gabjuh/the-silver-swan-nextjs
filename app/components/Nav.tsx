@@ -24,7 +24,7 @@ const getCurrentPage = (): PageT => {
 };
 
 const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
-  const settings = settingsArr?.[0];
+  const settings = settingsArr?.[0] || {};
 
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 

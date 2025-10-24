@@ -33,16 +33,33 @@ export default async function RootLayout({
   }
 
   const data = await getData();
-  
+
+  // Default menu items since API doesn't provide them
+  const defaultMenuItems = [
+    { titleDe: "Home", link: "/", active: "1" },
+    { titleDe: "Artists", link: "/artists", active: "1" },
+    { titleDe: "Concerts", link: "/concerts", active: "1" },
+    { titleDe: "Projects", link: "/projects", active: "1" },
+    { titleDe: "Events", link: "/events", active: "1" },
+    { titleDe: "Biography", link: "/biography", active: "1" }
+  ];
+
+  // Default settings since API doesn't provide them
+  const defaultSettings = [{
+    homepageTitle: "The Silver Swan",
+    email: "thesilverswan.bremen@gmail.com",
+    emailTooltipTextDe: "E-Mail senden",
+    copyright: "© 2025 The Silver Swan"
+  }];
   return (
     // <html lang="en" data-theme="dark">
     // <ParallaxProvider>
     // <html lang="de" data-theme="corporate">
     <html lang="de" data-theme={data.settings[0].theme ?? ''}>
       <body className={`${inter.className} min-h-[100vh] relative pb-[112px]`}>
-        <Nav data={[data.menuItems, data.settings]} />
+        <Nav data={[defaultMenuItems, defaultSettings]} />
         {children}
-        <Footer data={data.settings} timeStamp={data.timeStamp} />
+        <Footer data={defaultSettings} timeStamp={data.timeStamp} />
       </body>
     </html>
     // </ParallaxProvider>
