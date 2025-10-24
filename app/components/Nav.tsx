@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 
 import INav from '@/interfaces/INav';
@@ -9,8 +10,7 @@ import NavMenuItem from './NavMenuItem';
 
 type PageT = 'home' | 'artists' | 'concerts';
 
-const getCurrentPage = (): PageT => {
-  const pathname = window.location.pathname;
+const getCurrentPage = (pathname: string): PageT => {
   const parts = pathname.split('/').filter(part => part !== '');
   const page = parts[0] || 'home';
 
@@ -25,21 +25,19 @@ const getCurrentPage = (): PageT => {
 
 const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
   const settings = settingsArr?.[0] || {};
+  const pathname = usePathname();
 
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
-
   const [selectedMenuItem, setSelectedMenuItem] = useState<string>("/");
-
-  let currentPage: PageT = 'home';
 
   const handleMenuItemClick = (e: any) => {
     setSelectedMenuItem(e.target.id);
   };
-  
+
   useEffect(() => {
-    currentPage = getCurrentPage();
+    const currentPage = getCurrentPage(pathname);
     setSelectedMenuItem(currentPage);
-  }, [])
+  }, [pathname])
 
   return (
     <>
