@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import React, { MouseEventHandler, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import INav from '@/interfaces/INav';
 
@@ -24,7 +24,7 @@ const getCurrentPage = (): PageT => {
 };
 
 const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
-  const settings = settingsArr[0];
+  const settings = settingsArr?.[0];
 
   const [isTooltipOpen, setIsTooltipOpen] = React.useState(false);
 
@@ -67,7 +67,7 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
               tabIndex={0}
               className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-              {menu.map((item, index) => {
+              {menu?.map((item, index) => {
                 if (item.active === '0') {
                   return (
                     <div key={index}></div>
@@ -94,14 +94,14 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
               onClick={() => setSelectedMenuItem("")}
               // onClick={() => handleClick(-1)}
             >
-              {settings.homepageTitle}
+              {settings?.homepageTitle}
             </Link>
           </div>
         </div>
         <div className="hidden lg:flex">
           {/* Horisontal menu */}
           <ul className="menu menu-horizontal px-1">
-            {menu.map((item, index) => {
+            {menu?.map((item, index) => {
               if (item.active === '0') {
                 return null;
               }
@@ -123,10 +123,10 @@ const Nav: React.FC<INav> = ({ data: [menu, settingsArr] }) => {
             className={`md:tooltip md:tooltip-sm mx-0 ${
               isTooltipOpen ? `md:tooltip-open` : ""
             } md:tooltip-left`}
-            data-tip={settings.emailTooltipTextDe}
+            data-tip={settings?.emailTooltipTextDe}
           >
             <a
-              href={`mailto:${settings.email}`}
+              href={`mailto:${settings?.email}`}
               className="btn btn-secondary text-white"
             >
               @

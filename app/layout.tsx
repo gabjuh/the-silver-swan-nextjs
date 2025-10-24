@@ -1,7 +1,6 @@
 import './globals.css';
 
 import { Roboto } from 'next/font/google';
-import { ParallaxProvider } from 'react-scroll-parallax';
 
 import Footer from './components/Footer';
 import Nav from './components/Nav';

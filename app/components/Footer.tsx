@@ -1,6 +1,7 @@
-import ISettings from '@/interfaces/ISettings';
 import Link from 'next/link';
-import React from 'react'
+import React from 'react';
+
+import ISettings from '@/interfaces/ISettings';
 
 interface IFooter {
   data: ISettings[];
@@ -14,7 +15,7 @@ const Footer: React.FC<IFooter> = ({ data, timeStamp }) => {
       <div className="my-4 flex">
 
         <div className="text-right pr-5">
-          <p className="text-[.75rem] text-gray-400">{data[0].copyright}</p>
+          <p className="text-[.75rem] text-gray-400">{data?.[0].copyright}</p>
           <p className="text-[.75rem] text-gray-400">Designed by <a href="https://gaborjuhasz.de">Gábor Juhász</a></p>
           <p className="text-[.75rem] text-gray-400"><a href="https://github.com/gabjuh/fani-portfolio-next.js">a React/NextJS Project</a></p>
           <p className="text-[.75rem] text-gray-400">Last rendering: {timeStamp}</p>

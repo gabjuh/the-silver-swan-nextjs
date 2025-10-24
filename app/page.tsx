@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 
 import convertStringToUrlFriendly from '@/helpers/convertStringToUrlFriendly';
 import IData from '@/interfaces/IData';
@@ -39,22 +37,22 @@ export default async function HomePage() {
         <Image
           className="lg:max-w-[400px] w-full h-auto rounded-md drop-shadow-xl object-cover"
           src={`${apiUrl}/img/${convertStringToUrlFriendly(
-            data.home[0].fileName
+            data.home?.[0].fileName
           )}`}
-          alt={data.home[0].imgAlt}
+          alt={data.home?.[0].imgAlt || ""}
           width={400}
           height={200}
           priority={true}
         />
         <div className="lg:w-[50%]">
           <MarkdownText
-            text={data.home[0].text ?? ""}
+            text={data.home?.[0].text ?? ""}
             classes="hyphens-auto lg:text-justify"
           />
-          {data.home[0].buttonText && (
+          {data.home?.[0].buttonText && (
             <div className="mx-auto mt-10 lg:text-left text-center">
               <Link
-                href={data.home[0].link}
+                href={data.home?.[0].link}
                 className="btn btn-secondary text-white mx-auto"
                 // onClick={() => handleClick(0)}
               >
@@ -70,15 +68,15 @@ export default async function HomePage() {
         <BlockTitle text={data.home[1].blockTitle ?? ''} />
         <div className="flex lg:flex-row flex-col mt-10 gap-8 justify-center w-full">
           <MarkdownText
-            text={data.home[1].text ?? ""}
+            text={data.home?.[1].text ?? ""}
             classes="text-justify lg:w-[80%] px-8 md:px-12 lg:px-0 mx-auto"
           />
           <Image
             className="lg:max-w-[300px] max-w-[80%] mx-auto h-auto rounded-md drop-shadow-xl object-cover"
             src={`${apiUrl}/img/${convertStringToUrlFriendly(
-              data.home[1].fileName
+              data.home?.[1].fileName
             )}`}
-            alt={data.home[1].imgAlt}
+            alt={data.home?.[1].imgAlt || ""}
             width={300}
             height={200}
             priority={true}
@@ -90,8 +88,8 @@ export default async function HomePage() {
       <BlockTitle text={data.home[2].blockTitle} />
       <div className="flex xl:flex-row flex-col-reverse mt-10 mb-20 gap-8 justify-center w-full">
         <div className="xl:w-[50%] w-full">
-          <MarkdownText text={data.home[2].text ?? ""} classes="text-justify" />
-          {data.home[2].buttonText && (
+          <MarkdownText text={data.home?.[2].text ?? ""} classes="text-justify" />
+          {data.home?.[2].buttonText && (
             <div className="mx-auto w-full mt-10 text-center">
               <Link
                 href={`${data.home[2].link}`}
@@ -99,7 +97,7 @@ export default async function HomePage() {
                 className="btn btn-secondary text-white xl:float-right mx-auto"
                 // onClick={() => handleClick(0)}
               >
-                {data.home[2].buttonText}
+                {data.home?.[2].buttonText}
               </Link>
             </div>
           )}
@@ -107,9 +105,9 @@ export default async function HomePage() {
         <Image
           className="xl:max-w-[700px] w-full max-h-[500px] rounded-md drop-shadow-xl object-cover"
           src={`${apiUrl}/img/${convertStringToUrlFriendly(
-            data.home[2].fileName
+            data.home?.[2].fileName
           )}`}
-          alt={data.home[2].imgAlt}
+          alt={data.home?.[2].imgAlt || ""}
           width={400}
           height={200}
           priority={true}
