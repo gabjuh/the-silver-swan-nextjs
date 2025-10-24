@@ -32,6 +32,8 @@ export default async function RootLayout({
     return res.json();
   }
 
+  
+
   const data = await getData();
 
   // Default menu items since API doesn't provide them
@@ -39,9 +41,6 @@ export default async function RootLayout({
     { sheetId: "1", id: "home", titleEn: "Home", titleDe: "Home", titleHu: "Főoldal", link: "/", active: "1" },
     { sheetId: "2", id: "artists", titleEn: "Artists", titleDe: "Artists", titleHu: "Művészek", link: "/artists", active: "1" },
     { sheetId: "3", id: "concerts", titleEn: "Concerts", titleDe: "Concerts", titleHu: "Koncertek", link: "/concerts", active: "1" },
-    { sheetId: "4", id: "projects", titleEn: "Projects", titleDe: "Projects", titleHu: "Projektek", link: "/projects", active: "1" },
-    { sheetId: "5", id: "events", titleEn: "Events", titleDe: "Events", titleHu: "Események", link: "/events", active: "1" },
-    { sheetId: "6", id: "biography", titleEn: "Biography", titleDe: "Biography", titleHu: "Életrajz", link: "/biography", active: "1" }
   ];
 
   // Default settings since API doesn't provide them
@@ -51,15 +50,16 @@ export default async function RootLayout({
     emailTooltipTextDe: "E-Mail senden",
     copyright: "© 2025 The Silver Swan"
   }];
+
   return (
     // <html lang="en" data-theme="dark">
     // <ParallaxProvider>
     // <html lang="de" data-theme="corporate">
-    <html lang="de" data-theme={data.settings[0].theme ?? ''}>
+    <html lang="de" data-theme={data.settings?.[0].theme ?? ''}>
       <body className={`${inter.className} min-h-[100vh] relative pb-[112px]`}>
         <Nav data={[defaultMenuItems, defaultSettings]} />
         {children}
-        <Footer data={defaultSettings} timeStamp={data.timeStamp} />
+        <Footer data={defaultSettings} timeStamp={data.timeStamp} />     
       </body>
     </html>
     // </ParallaxProvider>

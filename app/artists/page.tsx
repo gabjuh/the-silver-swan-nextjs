@@ -1,7 +1,4 @@
-import Image from 'next/image';
-import Link from 'next/link';
 
-import convertStringToUrlFriendly from '@/helpers/convertStringToUrlFriendly';
 import { nameToId } from '@/helpers/nameToId';
 import IData from '@/interfaces/IData';
 
@@ -32,7 +29,7 @@ export default async function HomePage() {
           );
         }
         return (
-          <div className="border border-[#ffff]" key={index}>
+          <div className="border border-[#ffff] dark:border-[#0000]" key={index}>
             <div id={nameToId(item.artistName)}></div>
             {/* pt-[10px] mt-0 mb-[-40px] */}
             <ImageAndText              

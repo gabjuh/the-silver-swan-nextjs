@@ -1,4 +1,3 @@
-import React from 'react';
 
 const BlockTitle = ({
   text,
@@ -13,7 +12,7 @@ const BlockTitle = ({
       if (i === 0) {
         return txt;
       }
-      return <span className="block lg:inline whitespace-nowrap"> {txt}</span>
+      return <span className="block lg:inline whitespace-nowrap" key={i}> {txt}</span>
     })}
   </h2>
   )

@@ -1,6 +1,7 @@
-import IData from "@/interfaces/IData";
-import Title from "../components/Title";
-import ProjectItem from "../components/ProjectItem";
+import IData from '@/interfaces/IData';
+
+import ProjectItem from '../components/ProjectItem';
+import Title from '../components/Title';
 
 export default async function HomePage() {
 
@@ -21,9 +22,9 @@ export default async function HomePage() {
   return (
     <main className={`container mx-auto px-4 py-10 w-full`}>
       
-      <Title title={data.projects[0].pageTitle} />
+      <Title title={data.projects?.[0].pageTitle} />
 
-      {data.projects.map((item, index) => {
+      {data.projects?.map((item, index) => {
         if (item.active === '1') {
           return (
             <ProjectItem
