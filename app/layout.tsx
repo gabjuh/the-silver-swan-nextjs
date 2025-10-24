@@ -36,12 +36,12 @@ export default async function RootLayout({
 
   // Default menu items since API doesn't provide them
   const defaultMenuItems = [
-    { titleDe: "Home", link: "/", active: "1" },
-    { titleDe: "Artists", link: "/artists", active: "1" },
-    { titleDe: "Concerts", link: "/concerts", active: "1" },
-    { titleDe: "Projects", link: "/projects", active: "1" },
-    { titleDe: "Events", link: "/events", active: "1" },
-    { titleDe: "Biography", link: "/biography", active: "1" }
+    { sheetId: "1", id: "home", titleEn: "Home", titleDe: "Home", titleHu: "Főoldal", link: "/", active: "1" },
+    { sheetId: "2", id: "artists", titleEn: "Artists", titleDe: "Artists", titleHu: "Művészek", link: "/artists", active: "1" },
+    { sheetId: "3", id: "concerts", titleEn: "Concerts", titleDe: "Concerts", titleHu: "Koncertek", link: "/concerts", active: "1" },
+    { sheetId: "4", id: "projects", titleEn: "Projects", titleDe: "Projects", titleHu: "Projektek", link: "/projects", active: "1" },
+    { sheetId: "5", id: "events", titleEn: "Events", titleDe: "Events", titleHu: "Események", link: "/events", active: "1" },
+    { sheetId: "6", id: "biography", titleEn: "Biography", titleDe: "Biography", titleHu: "Életrajz", link: "/biography", active: "1" }
   ];
 
   // Default settings since API doesn't provide them
