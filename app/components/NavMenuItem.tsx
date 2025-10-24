@@ -13,7 +13,7 @@ const NavMenuItem: React.FC<INavMenuItem> = ({
   return (
     <li className={isDropdown && selected ? `bg-secondary` : ''}>
       <Link
-        href={"/" + link}
+        href={link.startsWith('/') ? link : `/${link}`}
         className={`menuButton ${selected ? 'bg-secondary text-white focus:text-white !focus:gb-secondary ' : 'text-gray-700'}`}
         id={link}
         onClick={handleMenuItemClick}
