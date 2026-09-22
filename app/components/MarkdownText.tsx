@@ -12,7 +12,7 @@ import IMarkdownText from '@/interfaces/IMarkdownText';
 
 const MarkdownText: React.FC<IMarkdownText> = ({ text, classes }) => {
   // Correction: In string replace all \n to \n\n
-  const correctedText = text.replace(/\n/g, "\n\n");
+  const correctedText = (text ?? '').replace(/\n/g, "\n\n");
 
   // Create an array of paragraphs on $$
   const paragraphs = correctedText.split("$$");

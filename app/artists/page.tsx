@@ -18,11 +18,14 @@ export default async function HomePage() {
 
   const data: IData = await getData();
 
+  // The sheet can contain trailing / half filled rows without an artistName.
+  const artists = (data.artists ?? []).filter((item) => !!item?.artistName);
+
   return (
     <main className={`container mx-auto px-4 py-10 mb-[500px] w-full`}>
-      <Title title={data.artists[0].pageTitle} />
+      <Title title={artists[0]?.pageTitle ?? ''} />
 
-      {data.artists.map((item, index) => {
+      {artists.map((item, index) => {
         if (item.active === '0') {
           return (
             <div id={nameToId(item.artistName)} key={index}></div>
@@ -37,7 +40,7 @@ export default async function HomePage() {
               alt={item.imgAlt}
               imageLeft={item.imgOnSide?.toLowerCase() === "left" ? true : false}
               loaded={true}
-              text={item.text}
+              text={item.text ?? ''}
             />
           </div>
         );
